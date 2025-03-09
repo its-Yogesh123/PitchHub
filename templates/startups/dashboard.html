@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .stat-box {
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            width: 120px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <p>This is your startup dashboard. You can manage your applications here.</p>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat-box">
+                <strong>Total</strong>
+                <p>{{ context.total_applications }}</p>
+            </div>
+            <div class="stat-box">
+                <strong>Pending</strong>
+                <p>{{ context.pending_applications }}</p>
+            </div>
+            <div class="stat-box">
+                <strong>Approved</strong>
+                <p>{{ context.approved_applications }}</p>
+            </div>
+            <div class="stat-box">
+                <strong>Rejected</strong>
+                <p>{{ context.rejected_applications }}</p>
+            </div>
+        </div>
+
+        <a href="/application/my_application" class="button">📜 My Applications</a>
+        <a href="/application/new" class="button">➕ Submit New Application</a>
+        <a href='' class="button" style="background: red;">🚪 Logout</a>
+    </div>
+</body>
+</html>

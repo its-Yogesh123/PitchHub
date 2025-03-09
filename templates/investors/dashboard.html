@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investor Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+        .header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        .startup-card {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        🚀 Welcome to Startup Investment Platform
+    </div>
+
+    <div class="container">
+        <h2>Discover Innovative Startups</h2>
+        <p>Find the best startups to invest in and help them grow. Connect with founders, analyze business plans, and make data-driven investment decisions.</p>
+
+        <a href="" class="button">📌 Register</a>
+        <a href="" class="button">🔑 Login</a>
+        <a href="" class="button">📊 Explore Startups</a>
+        <h3>📢 Featured Startups</h3>
+        {% for startup in featured_startups %}
+        <div class="startup-card">
+            <h4>{{ startup.name }}</h4>
+            <p><strong>Industry:</strong> {{ startup.industry }}</p>
+            <p><strong>Funding Stage:</strong> {{ startup.funding_stage }}</p>
+            <a href="" class="button">View Details</a>
+        </div>
+        {% empty %}
+        <p>No featured startups available right now.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

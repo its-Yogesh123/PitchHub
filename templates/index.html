@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Startup-Investor Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .stats {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Startup-Investor Hub</h1>
+        <p>Your platform to connect startups with investors.</p>
+
+        <div class="stats">
+            <p><strong>Total Startups:</strong> {{ context.total_startups }}</p>
+            <p><strong>Total Investors:</strong> {{ context.total_investors }}</p>
+            <p><strong>Total Applications:</strong> {{ context.total_applications }}</p>
+            <p><strong>Total Investments:</strong> {{ context.total_investments }}</p>
+        </div>
+
+        {% if user.is_authenticated %}
+            <a href="" class="btn">Go to Dashboard</a>
+        {% else %}
+            <a href="" class="btn">Login</a>
+            <a href="" class="btn">Sign Up</a>
+        {% endif %}
+    </div>
+</body>
+</html>

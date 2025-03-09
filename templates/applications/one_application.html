@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .approve-btn { background-color: green; color: white; }
+        .approve-btn:hover { background-color: darkgreen; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Application Details</h1>
+        <p><strong>Application ID:</strong> {{ application.reference_id }}</p>
+        <p><strong>Startup Name:</strong> {{ application.startup.username }}</p>
+        <p><strong>Service Type:</strong> {{ application.service_type }}</p>
+        <p><strong>Status:</strong> {{ application.status }}</p>
+        <p><strong>Funding Amount Requested:</strong> ${{ application.funding_amount }}</p>
+        <p><strong>Business Summary:</strong> {{ application.business_plan }}</p>
+        {% if user.is_authenticated %}
+            {% if user.role == "Investor" %}
+                <form method="POST" action="{% url 'approve_application' application.reference_id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn approve-btn">Offer/Approve Investment</button>
+                </form>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
