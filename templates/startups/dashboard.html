@@ -45,7 +45,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome, {{ user.username }}!</h1>
+        <h1>Welcome, {{ user.email }}!</h1>
         <p>This is your startup dashboard. You can manage your applications here.</p>
 
         <!-- Statistics -->
@@ -70,7 +70,7 @@
 
         <a href="/application/my_application" class="button">📜 My Applications</a>
         <a href="/application/new" class="button">➕ Submit New Application</a>
-        <a href='' class="button" style="background: red;">🚪 Logout</a>
+        <a href='/user/logout' class="button" style="background: red;">🚪 Logout</a>
     </div>
 </body>
 </html>

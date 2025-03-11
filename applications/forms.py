@@ -14,7 +14,6 @@ class ApplicationForm(forms.ModelForm):
         widgets = {
             "business_plan_summary": forms.Textarea(attrs={"rows": 4, "placeholder": "Explain Short Summary about Startup..."}),
         }
-
     def clean_pitch_deck(self):
         pitch_deck = self.cleaned_data.get("pitch_deck")
         if pitch_deck and pitch_deck.name.split(".")[-1] not in ["pdf", "ppt", "pptx"]:

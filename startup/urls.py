@@ -3,4 +3,5 @@ from . import views
 urlpatterns = [
     # path('register/', views.home),
     path('dashboard/',views.startup_dashboard),
+    path('setprofile/',views.update_profile),
 ]

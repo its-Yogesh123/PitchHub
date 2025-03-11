@@ -36,7 +36,7 @@
             <tr>
                 <th>Application ID</th>
                 <th>Startup Name</th>
-                <th>Service Type</th>
+                <th>Theme</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -44,12 +44,12 @@
             {% for application in applications %}
             <tr>
                 <td>
-                    <a href="">
+                    <a href="/application/{{ application.reference_id }}">
                         {{ application.reference_id }}
                     </a>
                 </td>
-                <td>{{ application.startup.username }}</td>
-                <td>{{ application.service_type }}</td>
+                <td>{{ application.startup.email }}</td>
+                <td>{{ application.type }}</td>
                 <td class="{% if application.status == 'Pending' %}pending
                            {% elif application.status == 'In Progress' %}in-progress
                            {% elif application.status == 'Completed' %}completed

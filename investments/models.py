@@ -41,8 +41,8 @@ class Investment(models.Model):
     investment_type = models.CharField(max_length=10, choices=INVESTMENT_TYPES, default="equity")
     equity_percentage = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="pending")  # New field for verification process
-    timestamp = models.DateTimeField(auto_now_add=True)  # When investment was created
-    verified_at = models.DateTimeField(null=True, blank=True)  # When startup verifies investment
+    timestamp = models.DateTimeField(auto_now_add=True)  #When investment was created
+    verified_at = models.DateTimeField(null=True, blank=True)  #When startup verifies investment
     additional_notes = models.TextField(blank=True, null=True)
     def __str__(self):
         return f"Investment {self.investment_id} - {self.status}"

@@ -36,11 +36,11 @@
     <div class="container">
         <h1>Application Details</h1>
         <p><strong>Application ID:</strong> {{ application.reference_id }}</p>
-        <p><strong>Startup Name:</strong> {{ application.startup.username }}</p>
-        <p><strong>Service Type:</strong> {{ application.service_type }}</p>
+        <p><strong>Startup Name:</strong> {{ application.startup.email }}</p>
+        <p><strong>Service Type:</strong> {{ application.type }}</p>
         <p><strong>Status:</strong> {{ application.status }}</p>
         <p><strong>Funding Amount Requested:</strong> ${{ application.funding_amount }}</p>
-        <p><strong>Business Summary:</strong> {{ application.business_plan }}</p>
+        <p><strong>Business Summary:</strong> {{ application.business_plan_summary }}</p>
         {% if user.is_authenticated %}
             {% if user.role == "Investor" %}
                 <form method="POST" action="{% url 'approve_application' application.reference_id %}">

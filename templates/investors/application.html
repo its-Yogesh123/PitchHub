@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-title {
+    min-height: 50px; /* Ensures all titles have at least the same height */
+    overflow: hidden;  /* Prevents long titles from stretching the card */
+}
+    </style>
+</head>
+<body>
+    
+{% block content %}
+<h2>Matched Applications (AI Powered)</h2>
+<ul>
+    {% for application in applications %}
+        <li>
+            <strong>{{ application.startup.email }}</strong> - {{ application.industry }}
+            <br>Funding Needed: {{ application.funding_amount }}
+            <br><a href="">View Details</a> <br> <br>
+        </li>
+    {% empty %}
+        <p>No suitable applications found.</p>
+    {% endfor %}
+</ul>
+{% endblock %}
+</body>
+</html>

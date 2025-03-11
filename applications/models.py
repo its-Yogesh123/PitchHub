@@ -34,7 +34,6 @@ class ApplicationModel(models.Model):
         limit_choices_to={"user_type": "startup"}, 
         related_name="startup_applications"
     )
-    
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, default="other")  # Type of startup
     funding_round = models.CharField(max_length=20, choices=FUNDING_ROUNDS, default="pre_seed")  # Funding stage
     funding_amount = models.DecimalField(max_digits=15, decimal_places=2)
